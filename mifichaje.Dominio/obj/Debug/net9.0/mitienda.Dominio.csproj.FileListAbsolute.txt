@@ -1,0 +1,11 @@
+C:\PROYECTOS_SQL_VISUAL_STUDIO\ASP.NET CORE CREAFICHAJE\mitienda\mitienda.Dominio\bin\Debug\net9.0\mitienda.Dominio.deps.json
+C:\PROYECTOS_SQL_VISUAL_STUDIO\ASP.NET CORE CREAFICHAJE\mitienda\mitienda.Dominio\bin\Debug\net9.0\mitienda.Dominio.dll
+C:\PROYECTOS_SQL_VISUAL_STUDIO\ASP.NET CORE CREAFICHAJE\mitienda\mitienda.Dominio\bin\Debug\net9.0\mitienda.Dominio.pdb
+C:\PROYECTOS_SQL_VISUAL_STUDIO\ASP.NET CORE CREAFICHAJE\mitienda\mitienda.Dominio\obj\Debug\net9.0\mitienda.Dominio.GeneratedMSBuildEditorConfig.editorconfig
+C:\PROYECTOS_SQL_VISUAL_STUDIO\ASP.NET CORE CREAFICHAJE\mitienda\mitienda.Dominio\obj\Debug\net9.0\mitienda.Dominio.AssemblyInfoInputs.cache
+C:\PROYECTOS_SQL_VISUAL_STUDIO\ASP.NET CORE CREAFICHAJE\mitienda\mitienda.Dominio\obj\Debug\net9.0\mitienda.Dominio.AssemblyInfo.cs
+C:\PROYECTOS_SQL_VISUAL_STUDIO\ASP.NET CORE CREAFICHAJE\mitienda\mitienda.Dominio\obj\Debug\net9.0\mitienda.Dominio.csproj.CoreCompileInputs.cache
+C:\PROYECTOS_SQL_VISUAL_STUDIO\ASP.NET CORE CREAFICHAJE\mitienda\mitienda.Dominio\obj\Debug\net9.0\mitienda.Dominio.dll
+C:\PROYECTOS_SQL_VISUAL_STUDIO\ASP.NET CORE CREAFICHAJE\mitienda\mitienda.Dominio\obj\Debug\net9.0\refint\mitienda.Dominio.dll
+C:\PROYECTOS_SQL_VISUAL_STUDIO\ASP.NET CORE CREAFICHAJE\mitienda\mitienda.Dominio\obj\Debug\net9.0\mitienda.Dominio.pdb
+C:\PROYECTOS_SQL_VISUAL_STUDIO\ASP.NET CORE CREAFICHAJE\mitienda\mitienda.Dominio\obj\Debug\net9.0\ref\mitienda.Dominio.dll

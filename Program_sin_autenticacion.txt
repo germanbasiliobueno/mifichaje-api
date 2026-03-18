@@ -1,0 +1,49 @@
+using mifichaje.Aplicacion.Interfaces;
+using mifichaje.Aplicacion.Services;
+using mifichaje.Infraestructura.Database;
+using mifichaje.Infraestructura.Repositories;
+
+
+
+var builder = WebApplication.CreateBuilder(args);
+
+// Add services to the container.
+
+builder.Services.AddControllers();
+// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
+builder.Services.AddOpenApi();
+
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+builder.Services.AddSingleton(new DBConnectionFactory(connectionString));
+
+/******  Registramos servicios para Producto   quitar  ********/
+builder.Services.AddScoped<IProductoRepository, ProductoRepository>();
+builder.Services.AddScoped<ProductoService>();
+
+/******  Registramos servicios para Usuario  ********/
+builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
+builder.Services.AddScoped<UsuarioService>();
+
+/******  Registramos servicios para Rol  ********/
+builder.Services.AddScoped<IRolRepository, RolRepository>();
+builder.Services.AddScoped<RolService>();
+
+
+
+builder.WebHost.UseUrls("http://0.0.0.0:5172");
+
+
+var app = builder.Build();
+
+// Configure the HTTP request pipeline.
+if (app.Environment.IsDevelopment())
+{
+    app.MapOpenApi();
+}
+app.UseRouting();
+
+app.UseAuthorization();
+
+app.MapControllers();
+
+app.Run();

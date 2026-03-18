@@ -1,0 +1,236 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\PROYECTOS_SQL_VISUAL_STUDIO\\ASP.NET CORE CREAFICHAJE\\mifichaje\\mifichaje.Infraestructura\\mifichaje.Infraestructura.csproj": {}
+  },
+  "projects": {
+    "C:\\PROYECTOS_SQL_VISUAL_STUDIO\\ASP.NET CORE CREAFICHAJE\\mifichaje\\mifichaje.Aplicacion\\mifichaje.Aplicacion.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\PROYECTOS_SQL_VISUAL_STUDIO\\ASP.NET CORE CREAFICHAJE\\mifichaje\\mifichaje.Aplicacion\\mifichaje.Aplicacion.csproj",
+        "projectName": "mifichaje.Aplicacion",
+        "projectPath": "C:\\PROYECTOS_SQL_VISUAL_STUDIO\\ASP.NET CORE CREAFICHAJE\\mifichaje\\mifichaje.Aplicacion\\mifichaje.Aplicacion.csproj",
+        "packagesPath": "C:\\Users\\34648\\.nuget\\packages\\",
+        "outputPath": "C:\\PROYECTOS_SQL_VISUAL_STUDIO\\ASP.NET CORE CREAFICHAJE\\mifichaje\\mifichaje.Aplicacion\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\34648\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {
+              "C:\\PROYECTOS_SQL_VISUAL_STUDIO\\ASP.NET CORE CREAFICHAJE\\mifichaje\\mifichaje.Dominio\\mifichaje.Dominio.csproj": {
+                "projectPath": "C:\\PROYECTOS_SQL_VISUAL_STUDIO\\ASP.NET CORE CREAFICHAJE\\mifichaje\\mifichaje.Dominio\\mifichaje.Dominio.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.200"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[8.0.10, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\PROYECTOS_SQL_VISUAL_STUDIO\\ASP.NET CORE CREAFICHAJE\\mifichaje\\mifichaje.Dominio\\mifichaje.Dominio.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\PROYECTOS_SQL_VISUAL_STUDIO\\ASP.NET CORE CREAFICHAJE\\mifichaje\\mifichaje.Dominio\\mifichaje.Dominio.csproj",
+        "projectName": "mifichaje.Dominio",
+        "projectPath": "C:\\PROYECTOS_SQL_VISUAL_STUDIO\\ASP.NET CORE CREAFICHAJE\\mifichaje\\mifichaje.Dominio\\mifichaje.Dominio.csproj",
+        "packagesPath": "C:\\Users\\34648\\.nuget\\packages\\",
+        "outputPath": "C:\\PROYECTOS_SQL_VISUAL_STUDIO\\ASP.NET CORE CREAFICHAJE\\mifichaje\\mifichaje.Dominio\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\34648\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.200"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[8.0.10, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\PROYECTOS_SQL_VISUAL_STUDIO\\ASP.NET CORE CREAFICHAJE\\mifichaje\\mifichaje.Infraestructura\\mifichaje.Infraestructura.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\PROYECTOS_SQL_VISUAL_STUDIO\\ASP.NET CORE CREAFICHAJE\\mifichaje\\mifichaje.Infraestructura\\mifichaje.Infraestructura.csproj",
+        "projectName": "mifichaje.Infraestructura",
+        "projectPath": "C:\\PROYECTOS_SQL_VISUAL_STUDIO\\ASP.NET CORE CREAFICHAJE\\mifichaje\\mifichaje.Infraestructura\\mifichaje.Infraestructura.csproj",
+        "packagesPath": "C:\\Users\\34648\\.nuget\\packages\\",
+        "outputPath": "C:\\PROYECTOS_SQL_VISUAL_STUDIO\\ASP.NET CORE CREAFICHAJE\\mifichaje\\mifichaje.Infraestructura\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\34648\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {
+              "C:\\PROYECTOS_SQL_VISUAL_STUDIO\\ASP.NET CORE CREAFICHAJE\\mifichaje\\mifichaje.Aplicacion\\mifichaje.Aplicacion.csproj": {
+                "projectPath": "C:\\PROYECTOS_SQL_VISUAL_STUDIO\\ASP.NET CORE CREAFICHAJE\\mifichaje\\mifichaje.Aplicacion\\mifichaje.Aplicacion.csproj"
+              },
+              "C:\\PROYECTOS_SQL_VISUAL_STUDIO\\ASP.NET CORE CREAFICHAJE\\mifichaje\\mifichaje.Dominio\\mifichaje.Dominio.csproj": {
+                "projectPath": "C:\\PROYECTOS_SQL_VISUAL_STUDIO\\ASP.NET CORE CREAFICHAJE\\mifichaje\\mifichaje.Dominio\\mifichaje.Dominio.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.200"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[8.0.10, )"
+            },
+            "Microsoft.Data.SqlClient": {
+              "target": "Package",
+              "version": "[6.1.4, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "1DbvuwjIaA+XmNfkWVdsreSw+CxwuLBn7N/IqHptpr8=",
+  "Source": "mifichaje.WebApi",
+  "BasePath": "_content/mifichaje.WebApi",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

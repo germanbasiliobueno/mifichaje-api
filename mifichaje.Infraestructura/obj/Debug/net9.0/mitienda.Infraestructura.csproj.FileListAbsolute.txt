@@ -1,0 +1,17 @@
+C:\PROYECTOS_SQL_VISUAL_STUDIO\ASP.NET CORE CREAFICHAJE\mitienda\mitienda.Infraestructura\bin\Debug\net9.0\mitienda.Infraestructura.deps.json
+C:\PROYECTOS_SQL_VISUAL_STUDIO\ASP.NET CORE CREAFICHAJE\mitienda\mitienda.Infraestructura\bin\Debug\net9.0\mitienda.Infraestructura.dll
+C:\PROYECTOS_SQL_VISUAL_STUDIO\ASP.NET CORE CREAFICHAJE\mitienda\mitienda.Infraestructura\bin\Debug\net9.0\mitienda.Infraestructura.pdb
+C:\PROYECTOS_SQL_VISUAL_STUDIO\ASP.NET CORE CREAFICHAJE\mitienda\mitienda.Infraestructura\bin\Debug\net9.0\mitienda.Aplicacion.dll
+C:\PROYECTOS_SQL_VISUAL_STUDIO\ASP.NET CORE CREAFICHAJE\mitienda\mitienda.Infraestructura\bin\Debug\net9.0\mitienda.Dominio.dll
+C:\PROYECTOS_SQL_VISUAL_STUDIO\ASP.NET CORE CREAFICHAJE\mitienda\mitienda.Infraestructura\bin\Debug\net9.0\mitienda.Aplicacion.pdb
+C:\PROYECTOS_SQL_VISUAL_STUDIO\ASP.NET CORE CREAFICHAJE\mitienda\mitienda.Infraestructura\bin\Debug\net9.0\mitienda.Dominio.pdb
+C:\PROYECTOS_SQL_VISUAL_STUDIO\ASP.NET CORE CREAFICHAJE\mitienda\mitienda.Infraestructura\obj\Debug\net9.0\mitienda.Infraestructura.csproj.AssemblyReference.cache
+C:\PROYECTOS_SQL_VISUAL_STUDIO\ASP.NET CORE CREAFICHAJE\mitienda\mitienda.Infraestructura\obj\Debug\net9.0\mitienda.Infraestructura.GeneratedMSBuildEditorConfig.editorconfig
+C:\PROYECTOS_SQL_VISUAL_STUDIO\ASP.NET CORE CREAFICHAJE\mitienda\mitienda.Infraestructura\obj\Debug\net9.0\mitienda.Infraestructura.AssemblyInfoInputs.cache
+C:\PROYECTOS_SQL_VISUAL_STUDIO\ASP.NET CORE CREAFICHAJE\mitienda\mitienda.Infraestructura\obj\Debug\net9.0\mitienda.Infraestructura.AssemblyInfo.cs
+C:\PROYECTOS_SQL_VISUAL_STUDIO\ASP.NET CORE CREAFICHAJE\mitienda\mitienda.Infraestructura\obj\Debug\net9.0\mitienda.Infraestructura.csproj.CoreCompileInputs.cache
+C:\PROYECTOS_SQL_VISUAL_STUDIO\ASP.NET CORE CREAFICHAJE\mitienda\mitienda.Infraestructura\obj\Debug\net9.0\mitienda.DD720E5C.Up2Date
+C:\PROYECTOS_SQL_VISUAL_STUDIO\ASP.NET CORE CREAFICHAJE\mitienda\mitienda.Infraestructura\obj\Debug\net9.0\mitienda.Infraestructura.dll
+C:\PROYECTOS_SQL_VISUAL_STUDIO\ASP.NET CORE CREAFICHAJE\mitienda\mitienda.Infraestructura\obj\Debug\net9.0\refint\mitienda.Infraestructura.dll
+C:\PROYECTOS_SQL_VISUAL_STUDIO\ASP.NET CORE CREAFICHAJE\mitienda\mitienda.Infraestructura\obj\Debug\net9.0\mitienda.Infraestructura.pdb
+C:\PROYECTOS_SQL_VISUAL_STUDIO\ASP.NET CORE CREAFICHAJE\mitienda\mitienda.Infraestructura\obj\Debug\net9.0\ref\mitienda.Infraestructura.dll
