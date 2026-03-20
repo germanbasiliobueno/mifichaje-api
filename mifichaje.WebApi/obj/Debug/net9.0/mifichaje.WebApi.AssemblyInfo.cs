@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("mifichaje.WebApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e1c3c82d52c76d7fd7e315306556ff28e6058fac")]
 [assembly: System.Reflection.AssemblyProductAttribute("mifichaje.WebApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("mifichaje.WebApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
