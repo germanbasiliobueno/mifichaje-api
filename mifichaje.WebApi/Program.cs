@@ -107,7 +107,7 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-app.MapGet("/", () => "API funcionando perfectamente");
+app.MapGet("/", () => "API funcionando perfectamente perfectamente");
 
 app.Run();
 
