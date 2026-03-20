@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("mifichaje.Aplicacion")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5438c644d26951f4798e5d5a73d9537f9c40fcd3")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0ad78f47979dcee8b96ff9a09da2393bd6a073a5")]
 [assembly: System.Reflection.AssemblyProductAttribute("mifichaje.Aplicacion")]
 [assembly: System.Reflection.AssemblyTitleAttribute("mifichaje.Aplicacion")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
