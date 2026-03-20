@@ -1,7 +1,5 @@
 services:
   - type: web
     name: mifichaje-api
-    env: dotnet
-    buildCommand: dotnet build
-    startCommand: dotnet mifichaje.WebApi.dll
-    rootDir: mifichaje.WebApi
+    env: docker
+    plan: free
