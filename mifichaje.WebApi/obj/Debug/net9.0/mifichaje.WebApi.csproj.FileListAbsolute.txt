@@ -175,3 +175,4 @@ C:\PROYECTOS_SQL_VISUAL_STUDIO\ASP.NET CORE CREAFICHAJE\mifichaje\mifichaje.WebA
 C:\PROYECTOS_SQL_VISUAL_STUDIO\ASP.NET CORE CREAFICHAJE\mifichaje\mifichaje.WebApi\obj\Debug\net9.0\mifichaj.B7209520.Up2Date
 C:\PROYECTOS_SQL_VISUAL_STUDIO\ASP.NET CORE CREAFICHAJE\mifichaje\mifichaje.WebApi\obj\Debug\net9.0\mifichaje.WebApi.genruntimeconfig.cache
 C:\PROYECTOS_SQL_VISUAL_STUDIO\ASP.NET CORE CREAFICHAJE\mifichaje\mifichaje.WebApi\obj\Debug\net9.0\ref\mifichaje.WebApi.dll
+C:\PROYECTOS_SQL_VISUAL_STUDIO\ASP.NET CORE CREAFICHAJE\mifichaje\mifichaje.WebApi\obj\Debug\net9.0\mifichaje.WebApi.sourcelink.json

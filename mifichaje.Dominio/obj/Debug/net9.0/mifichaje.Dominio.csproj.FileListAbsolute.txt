@@ -22,3 +22,4 @@ C:\PROYECTOS_SQL_VISUAL_STUDIO\ASP.NET CORE CREAFICHAJE\mifichaje\mifichaje.Domi
 C:\PROYECTOS_SQL_VISUAL_STUDIO\ASP.NET CORE CREAFICHAJE\mifichaje\mifichaje.Dominio\obj\Debug\net9.0\refint\mifichaje.Dominio.dll
 C:\PROYECTOS_SQL_VISUAL_STUDIO\ASP.NET CORE CREAFICHAJE\mifichaje\mifichaje.Dominio\obj\Debug\net9.0\mifichaje.Dominio.pdb
 C:\PROYECTOS_SQL_VISUAL_STUDIO\ASP.NET CORE CREAFICHAJE\mifichaje\mifichaje.Dominio\obj\Debug\net9.0\ref\mifichaje.Dominio.dll
+C:\PROYECTOS_SQL_VISUAL_STUDIO\ASP.NET CORE CREAFICHAJE\mifichaje\mifichaje.Dominio\obj\Debug\net9.0\mifichaje.Dominio.sourcelink.json

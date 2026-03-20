@@ -1,5 +1,6 @@
 ﻿using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.Data.SqlClient;
 using Microsoft.IdentityModel.Tokens;
 
 using mifichaje.Aplicacion.Interfaces;
@@ -30,8 +31,17 @@ builder.Services.AddCors(options =>
 // ===============================
 // 🔹 CONNECTION STRING
 // ===============================
+
+// CONFIGURACION CADENA DE CONEXION LOCAL
+/*
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddSingleton(new DBConnectionFactory(connectionString));
+*/
+
+// CONFIGURACIÓN CADENA DE CONEXION RENDER
+builder.Services.AddSingleton<DBConnectionFactory>(sp =>
+    new DBConnectionFactory(builder.Configuration.GetConnectionString("DefaultConnection")));
+
 
 // ===============================
 // 🔹 REPOS / SERVICES
@@ -107,7 +117,27 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+// test para ver que funciona en modo remoto
 app.MapGet("/", () => "API funcionando perfectamente perfectamente");
+
+// test para ver que conecta la base de datos azure
+
+app.MapGet("/test-db", () => 
+{
+   
+    try
+    {
+        using var conn = new SqlConnection(
+            builder.Configuration.GetConnectionString("DefaultConnection"));
+
+        conn.Open();
+        return "OK - Conectado a Azure SQL";
+    }
+    catch (Exception ex)
+    {
+        return $"ERROR: {ex.Message}";
+    }
+});
 
 app.Run();
 

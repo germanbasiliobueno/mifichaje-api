@@ -32,3 +32,4 @@ C:\PROYECTOS_SQL_VISUAL_STUDIO\ASP.NET CORE CREAFICHAJE\mifichaje\mifichaje.Infr
 C:\PROYECTOS_SQL_VISUAL_STUDIO\ASP.NET CORE CREAFICHAJE\mifichaje\mifichaje.Infraestructura\obj\Debug\net9.0\mifichaje.Infraestructura.csproj.CoreCompileInputs.cache
 C:\PROYECTOS_SQL_VISUAL_STUDIO\ASP.NET CORE CREAFICHAJE\mifichaje\mifichaje.Infraestructura\obj\Debug\net9.0\mifichaj.204619BF.Up2Date
 C:\PROYECTOS_SQL_VISUAL_STUDIO\ASP.NET CORE CREAFICHAJE\mifichaje\mifichaje.Infraestructura\obj\Debug\net9.0\ref\mifichaje.Infraestructura.dll
+C:\PROYECTOS_SQL_VISUAL_STUDIO\ASP.NET CORE CREAFICHAJE\mifichaje\mifichaje.Infraestructura\obj\Debug\net9.0\mifichaje.Infraestructura.sourcelink.json

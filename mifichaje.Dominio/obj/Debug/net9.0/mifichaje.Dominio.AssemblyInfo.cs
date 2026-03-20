@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("mifichaje.Dominio")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0ad78f47979dcee8b96ff9a09da2393bd6a073a5")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+541c6cc44df0eb28ad90e73b5a6ced2e8896cb3e")]
 [assembly: System.Reflection.AssemblyProductAttribute("mifichaje.Dominio")]
 [assembly: System.Reflection.AssemblyTitleAttribute("mifichaje.Dominio")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
