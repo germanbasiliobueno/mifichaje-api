@@ -20,7 +20,7 @@ namespace mifichaje.Infraestructura.Repositories
             using var comm = _connection.CreateConnection();
             using var cmd = comm.CreateCommand();
 
-            cmd.CommandText = "select f.IdFichaje, f.IdUsuario, u.NombreUsuario, f.FechaHora, f.TipoFichaje, f.Latitud, f.Longitud, f.Calle, f.Ciudad, f.FechaRegistro  FROM FICHAJES f INNER JOIN USUARIO U ON f.IdUsuario = u.IdUsuario ORDER BY f.FechaHora DESC";
+            cmd.CommandText = "select f.IdFichaje, f.IdUsuario, u.NombreUsuario, f.FechaHora AT TIME ZONE 'UTC' AT TIME ZONE 'Romance Standard Time' AS FechaHora, f.TipoFichaje, f.Latitud, f.Longitud, f.Calle, f.Ciudad, f.FechaRegistro  FROM FICHAJES f INNER JOIN USUARIO U ON f.IdUsuario = u.IdUsuario ORDER BY f.FechaHora DESC";
 
             await comm.OpenAsync();
 
@@ -110,7 +110,7 @@ namespace mifichaje.Infraestructura.Repositories
             using var cmd = comm.CreateCommand();
 
             cmd.CommandText = @"
-                 SELECT TOP 1  f.IdFichaje, f.IdUsuario, u.NombreUsuario, f.FechaHora, f.TipoFichaje, f.Latitud, f.Longitud, f.Calle, f.Ciudad
+                 SELECT TOP 1  f.IdFichaje, f.IdUsuario, u.NombreUsuario, f.FechaHora AT TIME ZONE 'UTC' AT TIME ZONE 'Romance Standard Time' AS FechaHora, f.TipoFichaje, f.Latitud, f.Longitud, f.Calle, f.Ciudad
                  FROM FICHAJES f  INNER JOIN USUARIO u ON f.IdUsuario= u.IdUsuario 
                  WHERE f.IdUsuario = @IdUsuario ORDER BY f.FechaHora DESC 
 ";
@@ -149,7 +149,7 @@ namespace mifichaje.Infraestructura.Repositories
             using var comm = _connection.CreateConnection();
             using var cmd = comm.CreateCommand();
 
-            cmd.CommandText = @"select f.IdFichaje, f.IdUsuario, u.NombreUsuario, f.FechaHora, f.TipoFichaje, f.Latitud, f.Longitud, f.Calle, f.Ciudad, f.FechaRegistro  FROM FICHAJES f INNER JOIN USUARIO U ON f.IdUsuario = u.IdUsuario WHERE f.IdUsuario = @IdUsuario ORDER BY f.FechaHora DESC";
+            cmd.CommandText = @"select f.IdFichaje, f.IdUsuario, u.NombreUsuario, f.FechaHora AT TIME ZONE 'UTC' AT TIME ZONE 'Romance Standard Time' AS FechaHora, f.TipoFichaje, f.Latitud, f.Longitud, f.Calle, f.Ciudad, f.FechaRegistro  FROM FICHAJES f INNER JOIN USUARIO U ON f.IdUsuario = u.IdUsuario WHERE f.IdUsuario = @IdUsuario ORDER BY f.FechaHora DESC";
             var param = cmd.CreateParameter();
             param.ParameterName = "@IdUsuario";
             param.Value = idUsuario;
@@ -186,7 +186,7 @@ namespace mifichaje.Infraestructura.Repositories
             using var comm = _connection.CreateConnection();
             using var cmd = comm.CreateCommand();
 
-            cmd.CommandText = @"select f.IdFichaje, f.IdUsuario, u.NombreUsuario, f.FechaHora, f.TipoFichaje, f.Latitud, f.Longitud, f.Calle, f.Ciudad, f.FechaRegistro  FROM FICHAJES f INNER JOIN USUARIO U ON f.IdUsuario = u.IdUsuario WHERE f.IdFichaje = @IdFichaje";
+            cmd.CommandText = @"select f.IdFichaje, f.IdUsuario, u.NombreUsuario, f.FechaHora AT TIME ZONE 'UTC' AT TIME ZONE 'Romance Standard Time' AS FechaHora, f.TipoFichaje, f.Latitud, f.Longitud, f.Calle, f.Ciudad, f.FechaRegistro  FROM FICHAJES f INNER JOIN USUARIO U ON f.IdUsuario = u.IdUsuario WHERE f.IdFichaje = @IdFichaje";
 
             var param = cmd.CreateParameter();
             param.ParameterName = "@IdFichaje";
