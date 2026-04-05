@@ -20,7 +20,7 @@ namespace mifichaje.Infraestructura.Repositories
             using var comm = _connection.CreateConnection();
             using var cmd = comm.CreateCommand();
 
-            cmd.CommandText = "select f.IdFichaje, f.IdUsuario, u.NombreUsuario, f.FechaHora AT TIME ZONE 'UTC' AT TIME ZONE 'Romance Standard Time' AS FechaHora, f.TipoFichaje, f.Latitud, f.Longitud, f.Calle, f.Ciudad, f.FechaRegistro  FROM FICHAJES f INNER JOIN USUARIO U ON f.IdUsuario = u.IdUsuario ORDER BY f.FechaHora DESC";
+            cmd.CommandText = "select f.IdFichaje, f.IdUsuario, u.NombreUsuario, f.FechaHora AT TIME ZONE 'UTC' AT TIME ZONE 'Romance Standard Time' AS FechaHora, f.TipoFichaje, f.Latitud, f.Longitud, f.Calle, f.Ciudad, f.FechaRegistro AT TIME ZONE 'UTC' AT TIME ZONE 'Romance Standard Time' AS FechaRegistro  FROM FICHAJES f INNER JOIN USUARIO U ON f.IdUsuario = u.IdUsuario ORDER BY f.FechaHora DESC";
 
             await comm.OpenAsync();
 
@@ -149,7 +149,7 @@ namespace mifichaje.Infraestructura.Repositories
             using var comm = _connection.CreateConnection();
             using var cmd = comm.CreateCommand();
 
-            cmd.CommandText = @"select f.IdFichaje, f.IdUsuario, u.NombreUsuario, f.FechaHora AT TIME ZONE 'UTC' AT TIME ZONE 'Romance Standard Time' AS FechaHora, f.TipoFichaje, f.Latitud, f.Longitud, f.Calle, f.Ciudad, f.FechaRegistro  FROM FICHAJES f INNER JOIN USUARIO U ON f.IdUsuario = u.IdUsuario WHERE f.IdUsuario = @IdUsuario ORDER BY f.FechaHora DESC";
+            cmd.CommandText = @"select f.IdFichaje, f.IdUsuario, u.NombreUsuario, f.FechaHora AT TIME ZONE 'UTC' AT TIME ZONE 'Romance Standard Time' AS FechaHora, f.TipoFichaje, f.Latitud, f.Longitud, f.Calle, f.Ciudad, f.FechaRegistro AT TIME ZONE 'UTC' AT TIME ZONE 'Romance Standard Time' AS FechaRegistro  FROM FICHAJES f INNER JOIN USUARIO U ON f.IdUsuario = u.IdUsuario WHERE f.IdUsuario = @IdUsuario ORDER BY f.FechaHora DESC";
             var param = cmd.CreateParameter();
             param.ParameterName = "@IdUsuario";
             param.Value = idUsuario;
@@ -186,7 +186,7 @@ namespace mifichaje.Infraestructura.Repositories
             using var comm = _connection.CreateConnection();
             using var cmd = comm.CreateCommand();
 
-            cmd.CommandText = @"select f.IdFichaje, f.IdUsuario, u.NombreUsuario, f.FechaHora AT TIME ZONE 'UTC' AT TIME ZONE 'Romance Standard Time' AS FechaHora, f.TipoFichaje, f.Latitud, f.Longitud, f.Calle, f.Ciudad, f.FechaRegistro  FROM FICHAJES f INNER JOIN USUARIO U ON f.IdUsuario = u.IdUsuario WHERE f.IdFichaje = @IdFichaje";
+            cmd.CommandText = @"select f.IdFichaje, f.IdUsuario, u.NombreUsuario, f.FechaHora AT TIME ZONE 'UTC' AT TIME ZONE 'Romance Standard Time' AS FechaHora, f.TipoFichaje, f.Latitud, f.Longitud, f.Calle, f.Ciudad, f.FechaRegistro AT TIME ZONE 'UTC' AT TIME ZONE 'Romance Standard Time' AS FechaRegistro FROM FICHAJES f INNER JOIN USUARIO U ON f.IdUsuario = u.IdUsuario WHERE f.IdFichaje = @IdFichaje";
 
             var param = cmd.CreateParameter();
             param.ParameterName = "@IdFichaje";
@@ -222,7 +222,7 @@ namespace mifichaje.Infraestructura.Repositories
             using var comm = _connection.CreateConnection();
             using var cmd = comm.CreateCommand();
 
-            cmd.CommandText = "SELECT u.IdUsuario, u.Documento, u.NombreUsuario, u.Correo, u.Clave, u.IdRol, r.Descripcion, u.Estado, u.FechaRegistro FROM Usuario u INNER JOIN ROL r ON u.IdRol = r.IdRol";
+            cmd.CommandText = "SELECT u.IdUsuario, u.Documento, u.NombreUsuario, u.Correo, u.Clave, u.IdRol, r.Descripcion, u.Estado, u.FechaRegistro AT TIME ZONE 'UTC' AT TIME ZONE 'Romance Standard Time' AS FechaRegistro FROM Usuario u INNER JOIN ROL r ON u.IdRol = r.IdRol";
 
             await comm.OpenAsync();
 
@@ -256,37 +256,6 @@ namespace mifichaje.Infraestructura.Repositories
     }
 }
 
-        /*
-                        public async Task<Rol?> ObtenerPorIdAsync(int id)
-                        {
-                            using var comm = _connection.CreateConnection();
-                            using var cmd = comm.CreateCommand();
-
-                            cmd.CommandText = @"
-                        SELECT IdRol, Descripcion, FechaRegistro
-                        FROM Rol
-                        WHERE IdRol = @IdRol";
-
-                            var param = cmd.CreateParameter();
-                            param.ParameterName = "@IdRol";
-                            param.Value = id;
-                            cmd.Parameters.Add(param);
-
-                            await comm.OpenAsync();
-
-                            using var reader = await cmd.ExecuteReaderAsync();
-
-                            // ✅ CLAVE: si no hay fila, devuelve null (y el controller hará NotFound)
-                            if (!await reader.ReadAsync())
-                                return null;
-
-                            return new Rol
-                            {
-                                IdRol = reader["IdRol"] == DBNull.Value ? 0 : Convert.ToInt32(reader["IdRol"]),
-                                Descripcion = reader["Descripcion"]?.ToString(),
-                                FechaRegistro = reader["FechaRegistro"]?.ToString()
-                            };
-                        }
-                */
+       
    
 
