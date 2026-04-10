@@ -20,10 +20,13 @@ namespace mifichaje.Aplicacion.Services
 
         public async Task<LoginResponseDTO?> GetPorIDocumentoAsync(string documento)
         {
-
             var usuario = await _repository.UsuarioRolPorDocumentoAsync(documento);
+            if (usuario == null) return null;
+
             var rol = await _repository.RolPorIdRolAsync(usuario.IdRol);
-              if (usuario == null) return null;
+            if (rol == null) return null;
+
+            if (usuario == null) return null;
             if (rol == null) return null;
 
             return new LoginResponseDTO

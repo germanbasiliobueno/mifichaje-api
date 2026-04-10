@@ -10,18 +10,17 @@ using System.Threading.Tasks;
 
 namespace mifichaje.Infraestructura.Repositories
 {
-    public class UsuarioRepository(DBConnectionFactory _connection) : IUsuarioRepository
+    public class UsuarioRepository : BaseRepository, IUsuarioRepository
     {
+        public UsuarioRepository(DBConnectionFactory connection) : base(connection) { }
         public async Task<IEnumerable<UsuarioDTO>> ListaTotalAsync()
         {
             var usuarios = new List<UsuarioDTO>();
-            using var comm = _connection.CreateConnection();
-            using var cmd = comm.CreateCommand();
+            using var conn = await OpenConnectionAsync();
+            using var cmd = conn.CreateCommand();
 
             cmd.CommandText = "SELECT u.IdUsuario, u.Documento, u.NombreUsuario, u.Correo, u.Clave, u.IdRol, r.Descripcion, u.Estado, u.FechaRegistro FROM Usuario u INNER JOIN ROL r ON u.IdRol = r.IdRol";
-
-            await comm.OpenAsync();
-
+    
             using var reader = await cmd.ExecuteReaderAsync();
 
             while (await reader.ReadAsync())
@@ -47,8 +46,8 @@ namespace mifichaje.Infraestructura.Repositories
 
         public async Task AñadirAsync(Usuario usuario)
         {
-            using var comm = _connection.CreateConnection();
-            using var cmd = comm.CreateCommand();
+            using var conn = await OpenConnectionAsync();
+            using var cmd = conn.CreateCommand();
 
             cmd.CommandText = "INSERT INTO Usuario (Documento, NombreUsuario, Correo, Clave,IdRol, Estado) VALUES (@Documento, @NombreUsuario, @Correo, @Clave, @IdRol, @Estado)";
             cmd.Parameters.AddWithValue("@Documento", usuario.Documento);
@@ -57,8 +56,7 @@ namespace mifichaje.Infraestructura.Repositories
             cmd.Parameters.AddWithValue("@Clave", usuario.Clave);
             cmd.Parameters.AddWithValue("@IdRol", usuario.IdRol);
             cmd.Parameters.AddWithValue("@Estado", usuario.Estado);
-
-            await comm.OpenAsync();
+        
             await cmd.ExecuteReaderAsync();
         }
 
@@ -67,8 +65,8 @@ namespace mifichaje.Infraestructura.Repositories
 
             try
             {
-                using var comm = _connection.CreateConnection();
-                using var cmd = comm.CreateCommand();
+                using var conn = await OpenConnectionAsync();
+                using var cmd = conn.CreateCommand();
 
                 cmd.CommandText = "UPDATE Usuario SET Documento=@Documento, NombreUsuario=@NombreUsuario, Correo=@Correo, Clave=@Clave, IdRol=@IdRol, Estado=@Estado, FechaRegistro = GETDATE() WHERE IdUsuario = @IdUsuario";
                 cmd.Parameters.AddWithValue("@IdUsuario", id);
@@ -79,7 +77,6 @@ namespace mifichaje.Infraestructura.Repositories
                 cmd.Parameters.AddWithValue("@IdRol", usuario.IdRol);
                 cmd.Parameters.AddWithValue("@Estado", usuario.Estado);
 
-                await comm.OpenAsync();
                 await cmd.ExecuteReaderAsync();
                 return true;
             }
@@ -92,21 +89,20 @@ namespace mifichaje.Infraestructura.Repositories
 
         public async Task EliminarAsync(int id)
         {
-            using var comm = _connection.CreateConnection();
-            using var cmd = comm.CreateCommand();
+            using var conn = await OpenConnectionAsync();
+            using var cmd = conn.CreateCommand();
 
             cmd.CommandText = "DELETE FROM Usuario WHERE IdUsuario = @IdUsuario";
             cmd.Parameters.AddWithValue("@IdUsuario", id);
 
-            await comm.OpenAsync();
             await cmd.ExecuteReaderAsync();
         }
 
 
         public async Task<Usuario?> ObtenerPorIdAsync(int id)
         {
-            using var comm = _connection.CreateConnection();
-            using var cmd = comm.CreateCommand();
+            using var conn = await OpenConnectionAsync();
+            using var cmd = conn.CreateCommand();
 
             cmd.CommandText = @"
         SELECT IdUsuario,Documento, NombreUsuario, Correo, Clave, IdRol, Estado, FechaRegistro
@@ -117,8 +113,6 @@ namespace mifichaje.Infraestructura.Repositories
             param.ParameterName = "@IdUsuario";
             param.Value = id;
             cmd.Parameters.Add(param);
-
-            await comm.OpenAsync();
 
             using var reader = await cmd.ExecuteReaderAsync();
 

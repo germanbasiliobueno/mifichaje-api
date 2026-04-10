@@ -13,26 +13,50 @@ namespace mifichaje.WebApi.Controllers
         [HttpGet]
         public async Task<IActionResult> ListaTotalAll()
         {
-            var Rols = await _service.GetAllAsync();
-            return Ok(Rols);
+            try
+            {
+                var Rols = await _service.GetAllAsync();
+                return Ok(Rols);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, "Error interno");
+            }
+            
         }
 
         [HttpPost]
         public async Task<IActionResult> Crear([FromBody] PostRolDTO dto)
         {
-            await _service.AñadirAsync(dto);
-            return Ok(new { message = "Rol creado con éxito" });
+            try
+            {
+                await _service.AñadirAsync(dto);
+                return Ok(new { message = "Rol creado con éxito" });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, "Error interno");
+            }
+            
         }
 
         [HttpPut("{id}")]
         public async Task<IActionResult> Update(int id, [FromBody] PutRolDTO dto)
         {
-            var actualizado = await _service.ActualizarAsync(id, dto);
+            try
+            {
+                var actualizado = await _service.ActualizarAsync(id, dto);
 
-            if (!actualizado)
-                return NotFound(new { message = "Rol no encontrado" });
+                if (!actualizado)
+                    return NotFound(new { message = "Rol no encontrado" });
 
-            return Ok(new { message = "Rol actualizado" });
+                return Ok(new { message = "Rol actualizado" });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, "Error interno");
+            }
+            
 
            
         }
@@ -40,17 +64,33 @@ namespace mifichaje.WebApi.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
-            await _service.EliminarAsync(id);
-            return Ok(new { message = "Rol eliminado" });
+            try
+            {
+                await _service.EliminarAsync(id);
+                return Ok(new { message = "Rol eliminado" });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, "Error interno");
+            }
+           
         }
 
 
         [HttpGet("{id}")]
         public async Task<IActionResult> GetPorId(int id)
         {
-            var rol = await _service.GetPorIdAsync(id);
-            if (rol == null) return NotFound();
-            return Ok(rol);
+            try
+            {
+                var rol = await _service.GetPorIdAsync(id);
+                if (rol == null) return NotFound();
+                return Ok(rol);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, "Error interno");
+            }
+           
         }
     }
 }

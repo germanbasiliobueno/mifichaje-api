@@ -16,63 +16,128 @@ namespace mifichaje.WebApi.Controllers
         [HttpGet]
         public async Task<IActionResult> ListaTotalAll()
         {
-            var fichajes = await _service.GetAllAsync();
-            return Ok(fichajes);
+            try
+            {
+                var fichajes = await _service.GetAllAsync();
+                return Ok(fichajes);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, "Error interno");
+            }
+
         }
 
         [HttpPost]
         public async Task<IActionResult> Crear([FromBody] PostFichajeDTO dto)
         {
-            await _service.CrearFichajeAsync(dto);
-            return Ok(new { message = "Fichaje creado para el usuario:" + dto.IdUsuario.ToString() + " de " + dto.TipoFichaje.ToString() });
+            try
+            {
+                await _service.CrearFichajeAsync(dto);
+                return Ok(new { message = "Fichaje creado para el usuario:" + dto.IdUsuario.ToString() + " de " + dto.TipoFichaje.ToString() });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, "Error interno");
+            }
+           
         }
         
 
      [HttpPut("{id}")]
         public async Task<IActionResult> Update(int id, [FromBody] PostFichajeDTO dto)
         {
-            var actualizado = await _service.ActualizarAsync(id, dto);
+            try
+            {
+                var actualizado = await _service.ActualizarAsync(id, dto);
 
-            if (!actualizado)
-                return NotFound(new { message = "Fichaje no encontrado" });
+                if (!actualizado)
+                    return NotFound(new { message = "Fichaje no encontrado" });
 
-            return Ok(new { message = "Fichaje actualizado para el usuario:" + dto.IdUsuario.ToString() + " de " + dto.TipoFichaje.ToString() });
+                return Ok(new { message = "Fichaje actualizado para el usuario:" + dto.IdUsuario.ToString() + " de " + dto.TipoFichaje.ToString() });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, "Error interno");
+            }
+
+            
 
         }
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
-            await _service.EliminarAsync(id);
-            return Ok(new { message = "Fichaje nº " + id + " eliminado" });
+            try
+            {
+                await _service.EliminarAsync(id);
+                return Ok(new { message = "Fichaje nº " + id + " eliminado" });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, "Error interno");
+            }
+           
         }
 
         [HttpGet("usuario/{id}")]
         public async Task<IActionResult> GetListaFichajeUsuario(int id)
         {
-            var fichajes = await _service.GetListaFichajePorUsuarioAsync(id);
-            return Ok(fichajes);
+            try
+            {
+                var fichajes = await _service.GetListaFichajePorUsuarioAsync(id);
+                return Ok(fichajes);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, "Error interno");
+            }
+          
         }
 
         [HttpGet("usuario/{id}/ultimo")]
         public async Task<IActionResult> GetUltimoFichajeUsuario(int id)
         {
-            var fichaje = await _service.GetUltimoFichajePorUsuarioAsync(id);
-            return Ok(fichaje);
+            try
+            {
+                var fichaje = await _service.GetUltimoFichajePorUsuarioAsync(id);
+                return Ok(fichaje);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, "Error interno");
+            }
+            
         }
 
         [HttpGet("{id}")]
         public async Task<IActionResult> GetPorIdFichaje(int id)
         {
-            var fichaje = await _service.GetPorIdFichajeAsync(id);
-            return Ok(fichaje);
+            try
+            {
+                var fichaje = await _service.GetPorIdFichajeAsync(id);
+                return Ok(fichaje);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, "Error interno");
+            }
+            
         }
 
         [HttpGet("usuarios")]
         public async Task<IActionResult> GetListaUsuarios()
         {
-            var usuarios = await _service.GetUsuariosAsync();
-            return Ok(usuarios);
+            try
+            {
+                var usuarios = await _service.GetUsuariosAsync();
+                return Ok(usuarios);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, "Error interno");
+            }
+            
         }
     } 
 }

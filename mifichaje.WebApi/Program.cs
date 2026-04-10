@@ -97,6 +97,25 @@ builder.WebHost.UseUrls($"http://*:{port}");
 var app = builder.Build();
 
 // ===============================
+// 🔴 MANEJO GLOBAL DE ERRORES
+// ===============================
+app.UseExceptionHandler("/error");
+
+app.Map("/error", (HttpContext context) =>
+{
+    var exception = context.Features.Get<Microsoft.AspNetCore.Diagnostics.IExceptionHandlerFeature>()?.Error;
+
+    // Puedes loguear aquí si quieres (recomendado en futuro)
+    Console.WriteLine($"ERROR GLOBAL: {exception?.Message}");
+
+    return Results.Problem(
+        title: "Error interno del servidor",
+        detail: exception?.Message,
+        statusCode: 500
+    );
+});
+
+// ===============================
 // 🔹 OPENAPI
 // ===============================
 if (app.Environment.IsDevelopment())
@@ -120,24 +139,6 @@ app.MapControllers();
 // test para ver que funciona en modo remoto
 app.MapGet("/", () => "API funcionando perfectamente perfectamente");
 
-// test para ver que conecta la base de datos azure
-
-app.MapGet("/test-db", () => 
-{
-   
-    try
-    {
-        using var conn = new SqlConnection(
-            builder.Configuration.GetConnectionString("DefaultConnection"));
-
-        conn.Open();
-        return "OK - Conectado a Azure SQL";
-    }
-    catch (Exception ex)
-    {
-        return $"ERROR: {ex.Message}";
-    }
-});
 
 app.Run();
 

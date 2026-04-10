@@ -12,17 +12,18 @@ using mifichaje.Aplicacion.Interfaces;
 
 namespace mifichaje.Infraestructura.Repositories
 {
-    public class FichajeRepository(DBConnectionFactory _connection) : IFichajeRepository
-    {
+
+        public class FichajeRepository : BaseRepository, IFichajeRepository
+        {
+        public FichajeRepository(DBConnectionFactory connection) : base(connection) { }
         public async Task<IEnumerable<FichajeDTO>> ListaTotalAsync()
         {
             var Fichajes = new List<FichajeDTO>();
-            using var comm = _connection.CreateConnection();
-            using var cmd = comm.CreateCommand();
+            using var conn = await OpenConnectionAsync();
+            using var cmd = conn.CreateCommand();
 
             cmd.CommandText = "select f.IdFichaje, f.IdUsuario, u.NombreUsuario, f.FechaHora AT TIME ZONE 'UTC' AT TIME ZONE 'Romance Standard Time' AS FechaHora, f.TipoFichaje, f.Latitud, f.Longitud, f.Calle, f.Ciudad, f.FechaRegistro AT TIME ZONE 'UTC' AT TIME ZONE 'Romance Standard Time' AS FechaRegistro  FROM FICHAJES f INNER JOIN USUARIO U ON f.IdUsuario = u.IdUsuario ORDER BY f.FechaHora DESC";
 
-            await comm.OpenAsync();
 
             using var reader = await cmd.ExecuteReaderAsync();
 
@@ -48,8 +49,8 @@ namespace mifichaje.Infraestructura.Repositories
 
         public async Task AñadirAsync(PostFichajeDTO fichaje)
         {
-            using var comm = _connection.CreateConnection();
-            using var cmd = comm.CreateCommand();
+            using var conn = await OpenConnectionAsync();
+            using var cmd = conn.CreateCommand();
 
             cmd.CommandText = "INSERT INTO FICHAJES (IdUsuario,  TipoFichaje, Latitud, Longitud, Calle, Ciudad) VALUES (@IdUsuario, @TipoFichaje, @Latitud, @Longitud, @Calle, @Ciudad)";
             cmd.Parameters.AddWithValue("@IdUsuario", fichaje.IdUsuario);
@@ -59,7 +60,6 @@ namespace mifichaje.Infraestructura.Repositories
             cmd.Parameters.AddWithValue("@Calle", fichaje.Calle);
             cmd.Parameters.AddWithValue("@Ciudad", fichaje.Ciudad);
 
-            await comm.OpenAsync();
             await cmd.ExecuteReaderAsync();
         }
 
@@ -68,8 +68,8 @@ namespace mifichaje.Infraestructura.Repositories
 
             try
             {
-                using var comm = _connection.CreateConnection();
-                using var cmd = comm.CreateCommand();
+                using var conn = await OpenConnectionAsync();
+                using var cmd = conn.CreateCommand();
 
                 cmd.CommandText = "UPDATE FICHAJES SET IdUsuario = @IdUsuario, FechaHora = GETDATE(), TipoFichaje=@TipoFichaje, Latitud = @Latitud, Longitud = @Longitud, Calle = @Calle, Ciudad = @Ciudad, FechaRegistro = GETDATE() WHERE IdFichaje = @IdFichaje";
                 cmd.Parameters.AddWithValue("@IdFichaje", id);
@@ -80,7 +80,6 @@ namespace mifichaje.Infraestructura.Repositories
                 cmd.Parameters.AddWithValue("@Calle", fichaje.Calle);
                 cmd.Parameters.AddWithValue("@Ciudad", fichaje.Ciudad);
 
-                await comm.OpenAsync();
                 await cmd.ExecuteReaderAsync();
                 return true;
             }
@@ -93,21 +92,20 @@ namespace mifichaje.Infraestructura.Repositories
 
         public async Task EliminarAsync(int idfichaje)
         {
-            using var comm = _connection.CreateConnection();
-            using var cmd = comm.CreateCommand();
+            using var conn = await OpenConnectionAsync();
+            using var cmd = conn.CreateCommand();
 
             cmd.CommandText = "DELETE FROM FICHAJES WHERE IdFichaje = @IdFichaje";
             cmd.Parameters.AddWithValue("@IdFichaje", idfichaje);
 
-            await comm.OpenAsync();
             await cmd.ExecuteReaderAsync();
         }
 
 
         public async Task<FichajeDTO> ObtenerUltimoFichajePorUsuarioAsync(int idUsuario)
         {
-            using var comm = _connection.CreateConnection();
-            using var cmd = comm.CreateCommand();
+            using var conn = await OpenConnectionAsync();
+            using var cmd = conn.CreateCommand();
 
             cmd.CommandText = @"
                  SELECT TOP 1  f.IdFichaje, f.IdUsuario, u.NombreUsuario, f.FechaHora AT TIME ZONE 'UTC' AT TIME ZONE 'Romance Standard Time' AS FechaHora, f.TipoFichaje, f.Latitud, f.Longitud, f.Calle, f.Ciudad
@@ -120,7 +118,7 @@ namespace mifichaje.Infraestructura.Repositories
             param.Value = idUsuario;
             cmd.Parameters.Add(param);
 
-            await comm.OpenAsync();
+
 
             using var reader = await cmd.ExecuteReaderAsync();
 
@@ -146,16 +144,14 @@ namespace mifichaje.Infraestructura.Repositories
         public async Task<List<FichajeDTO>> ListaFichajePorUsuarioAsync(int idUsuario)
         {
             var Fichajes = new List<FichajeDTO>();
-            using var comm = _connection.CreateConnection();
-            using var cmd = comm.CreateCommand();
+            using var conn = await OpenConnectionAsync();
+            using var cmd = conn.CreateCommand();
 
             cmd.CommandText = @"select f.IdFichaje, f.IdUsuario, u.NombreUsuario, f.FechaHora AT TIME ZONE 'UTC' AT TIME ZONE 'Romance Standard Time' AS FechaHora, f.TipoFichaje, f.Latitud, f.Longitud, f.Calle, f.Ciudad, f.FechaRegistro AT TIME ZONE 'UTC' AT TIME ZONE 'Romance Standard Time' AS FechaRegistro  FROM FICHAJES f INNER JOIN USUARIO U ON f.IdUsuario = u.IdUsuario WHERE f.IdUsuario = @IdUsuario ORDER BY f.FechaHora DESC";
             var param = cmd.CreateParameter();
             param.ParameterName = "@IdUsuario";
             param.Value = idUsuario;
             cmd.Parameters.Add(param);
-
-            await comm.OpenAsync();
 
             using var reader = await cmd.ExecuteReaderAsync();
 
@@ -183,8 +179,8 @@ namespace mifichaje.Infraestructura.Repositories
 
         public async Task<FichajeDTO> ObtenerPorIdFichajeAsync(int idfichaje)
         {
-            using var comm = _connection.CreateConnection();
-            using var cmd = comm.CreateCommand();
+            using var conn = await OpenConnectionAsync();
+            using var cmd = conn.CreateCommand();
 
             cmd.CommandText = @"select f.IdFichaje, f.IdUsuario, u.NombreUsuario, f.FechaHora AT TIME ZONE 'UTC' AT TIME ZONE 'Romance Standard Time' AS FechaHora, f.TipoFichaje, f.Latitud, f.Longitud, f.Calle, f.Ciudad, f.FechaRegistro AT TIME ZONE 'UTC' AT TIME ZONE 'Romance Standard Time' AS FechaRegistro FROM FICHAJES f INNER JOIN USUARIO U ON f.IdUsuario = u.IdUsuario WHERE f.IdFichaje = @IdFichaje";
 
@@ -192,8 +188,6 @@ namespace mifichaje.Infraestructura.Repositories
             param.ParameterName = "@IdFichaje";
             param.Value = idfichaje;
             cmd.Parameters.Add(param);
-
-            await comm.OpenAsync();
 
             using var reader = await cmd.ExecuteReaderAsync();
 
@@ -219,12 +213,10 @@ namespace mifichaje.Infraestructura.Repositories
         public async Task<IEnumerable<UsuarioDTO>> ListaUsuariosAsync()
         {
             var usuarios = new List<UsuarioDTO>();
-            using var comm = _connection.CreateConnection();
-            using var cmd = comm.CreateCommand();
+            using var conn = await OpenConnectionAsync();
+            using var cmd = conn.CreateCommand();
 
             cmd.CommandText = "SELECT u.IdUsuario, u.Documento, u.NombreUsuario, u.Correo, u.Clave, u.IdRol, r.Descripcion, u.Estado, u.FechaRegistro AT TIME ZONE 'UTC' AT TIME ZONE 'Romance Standard Time' AS FechaRegistro FROM Usuario u INNER JOIN ROL r ON u.IdRol = r.IdRol";
-
-            await comm.OpenAsync();
 
             using var reader = await cmd.ExecuteReaderAsync();
 

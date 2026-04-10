@@ -9,17 +9,17 @@ using mifichaje.Aplicacion.Interfaces;
 
 namespace mifichaje.Infraestructura.Repositories
 {
-    public class RolRepository(DBConnectionFactory _connection) : IRolRepository
+    public class RolRepository : BaseRepository, IRolRepository
     {
+        public RolRepository(DBConnectionFactory connection) : base(connection) { }
         public async Task<IEnumerable<Rol>> ListaTotalAsync()
         {
             var rols = new List<Rol>();
-            using var comm = _connection.CreateConnection();
-            using var cmd = comm.CreateCommand();
+            using var conn = await OpenConnectionAsync();
+            using var cmd = conn.CreateCommand();
 
             cmd.CommandText = "SELECT IdRol, Descripcion, FechaRegistro FROM Rol";
 
-            await comm.OpenAsync();
 
             using var reader = await cmd.ExecuteReaderAsync();
 
@@ -38,13 +38,12 @@ namespace mifichaje.Infraestructura.Repositories
 
         public async Task AñadirAsync(Rol rol)
         {
-            using var comm = _connection.CreateConnection();
-            using var cmd = comm.CreateCommand();
+            using var conn = await OpenConnectionAsync();
+            using var cmd = conn.CreateCommand();
 
             cmd.CommandText = "INSERT INTO Rol (Descripcion) VALUES (@Descripcion)";
             cmd.Parameters.AddWithValue("@Descripcion", rol.Descripcion);
 
-            await comm.OpenAsync();
             await cmd.ExecuteReaderAsync();
         }
 
@@ -53,14 +52,13 @@ namespace mifichaje.Infraestructura.Repositories
 
             try
             {
-                using var comm = _connection.CreateConnection();
-                using var cmd = comm.CreateCommand();
+                using var conn = await OpenConnectionAsync();
+                using var cmd = conn.CreateCommand();
 
                 cmd.CommandText = "UPDATE Rol SET Descripcion=@Descripcion,  FechaRegistro = GETDATE() WHERE IdRol = @IdRol";
                 cmd.Parameters.AddWithValue("@IdRol", id);
                 cmd.Parameters.AddWithValue("@Descripcion", rol.Descripcion);
 
-                await comm.OpenAsync();
                 await cmd.ExecuteReaderAsync();
                 return true;
             }
@@ -73,21 +71,20 @@ namespace mifichaje.Infraestructura.Repositories
 
         public async Task EliminarAsync(int id)
         {
-            using var comm = _connection.CreateConnection();
-            using var cmd = comm.CreateCommand();
+            using var conn = await OpenConnectionAsync();
+            using var cmd = conn.CreateCommand();
 
             cmd.CommandText = "DELETE FROM Rol WHERE IdRol = @IdRol";
             cmd.Parameters.AddWithValue("@IdRol", id);
 
-            await comm.OpenAsync();
             await cmd.ExecuteReaderAsync();
         }
 
 
         public async Task<Rol?> ObtenerPorIdAsync(int id)
         {
-            using var comm = _connection.CreateConnection();
-            using var cmd = comm.CreateCommand();
+            using var conn = await OpenConnectionAsync();
+            using var cmd = conn.CreateCommand();
 
             cmd.CommandText = @"
         SELECT IdRol, Descripcion, FechaRegistro
@@ -98,8 +95,6 @@ namespace mifichaje.Infraestructura.Repositories
             param.ParameterName = "@IdRol";
             param.Value = id;
             cmd.Parameters.Add(param);
-
-            await comm.OpenAsync();
 
             using var reader = await cmd.ExecuteReaderAsync();
 
